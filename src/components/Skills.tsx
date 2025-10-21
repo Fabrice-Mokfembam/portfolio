@@ -7,8 +7,6 @@ import {
   Smartphone, 
   Palette, 
   Server,
-  Zap,
-  Layers
 } from 'lucide-react';
 
 const Skills: React.FC = () => {
