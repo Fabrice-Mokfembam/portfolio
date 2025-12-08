@@ -22,7 +22,7 @@ const Skills: React.FC = () => {
     { name: 'WordPress', percentage: 70, icon: Globe, color: 'from-blue-600 to-blue-800' },
     { name: 'React Native', percentage: 70, icon: Smartphone, color: 'from-blue-400 to-blue-600' },
     { name: 'Ionic', percentage: 50, icon: Smartphone, color: 'from-blue-500 to-purple-500' },
-    { name: 'Flutter', percentage: 60, icon: Smartphone, color: 'from-blue-400 to-cyan-400' },
+    { name: 'Flutter', percentage: 10, icon: Smartphone, color: 'from-blue-400 to-cyan-400' },
   ];
 
   const skillCategories = [

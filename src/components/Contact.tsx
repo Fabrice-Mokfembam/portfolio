@@ -52,9 +52,9 @@ const Contact: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/mokfembam', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/mokfembam-fabrice', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/mokfembam', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/Fabrice-Mokfembam/', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/fabrice-mokfembam/', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/home', label: 'Twitter' },
     { icon: Mail, href: 'mailto:fabricemokfembam@gmail.com', label: 'Email' }
   ];
 

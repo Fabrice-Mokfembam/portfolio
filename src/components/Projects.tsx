@@ -27,12 +27,12 @@ const Projects: React.FC = () => {
     {
       id: 'sweetslickui',
       title: 'SweetSlickUI',
-      description: 'A comprehensive UI library built with React and TypeScript, providing beautiful, accessible components for modern web applications.',
-      longDescription: 'SweetSlickUI is a comprehensive React UI library that I developed to solve the common problem of inconsistent design systems across projects. Built with TypeScript and modern React patterns, it provides a collection of beautiful, accessible, and customizable components.',
+      description: 'A comprehensive UI library built with React and TypeScript, providing beautiful, accessible components for modern web applications. Hosted on NPM with Next.js documentation.',
+      longDescription: 'SweetSlickUI is a comprehensive React UI library that I developed to solve the common problem of inconsistent design systems across projects. Built with TypeScript and modern React patterns, it provides a collection of beautiful, accessible, and customizable components. The library is published on NPM and includes comprehensive documentation built with Next.js.',
       image: '/api/placeholder/600/400',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Storybook', 'NPM'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'NPM'],
       category: 'Frontend',
-      liveUrl: 'https://www.npmjs.com/package/sweetslickui',
+      liveUrl: 'https://slicksweetuidocs.vercel.app/',
       githubUrl: 'https://github.com/mokfembam/sweetslickui',
       features: [
         '30+ reusable components',
@@ -56,14 +56,15 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 'viralboost',
-      title: 'ViralBoost',
+      id: 'passive-income',
+      title: 'Passive Income',
       description: 'A comprehensive social media task management platform where users earn money by completing engagement tasks across various platforms.',
-      longDescription: 'ViralBoost is a full-stack social media task management platform that connects users with earning opportunities through social media engagement. Built for Intech company, this platform facilitates microtasking specifically focused on social media marketing.',
+      longDescription: 'Passive Income is a full-stack social media task management platform that connects users with earning opportunities through social media engagement. Built for Intech company, this platform facilitates microtasking specifically focused on social media marketing.',
       image: '/api/placeholder/600/400',
-      technologies: ['React', 'Laravel', 'MySQL', 'Cloudinary', 'JWT', 'Tailwind CSS'],
+      technologies: ['PHP', 'React.js', 'TypeScript', 'Tailwind CSS', 'MySQL'],
       category: 'Full-Stack',
-      liveUrl: 'https://viralboost.com',
+      liveUrl: 'http://passive-incomes.online/',
+      githubUrl: 'https://github.com/Fabrice-Mokfembam/viralboost',
       features: [
         'Task management system',
         'Multi-tier membership',
@@ -89,12 +90,12 @@ const Projects: React.FC = () => {
       id: 'reepls',
       title: 'Reepls',
       description: 'A modern content platform combining blogging, podcasting, and social networking features to amplify African voices.',
-      longDescription: 'Reepls is a comprehensive content creation platform designed to amplify African voices through modern blogging, podcasting, and social networking features. Built with MERN stack, it provides a complete ecosystem for content creators.',
+      longDescription: 'Reepls is a comprehensive content creation platform designed to amplify African voices through modern blogging, podcasting, and social networking features. Built with MERN stack, it provides a complete ecosystem for content creators. The platform includes a web application, mobile app, and RESTful API backend.',
       image: '/api/placeholder/600/400',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'WaveSurfer.js', 'TipTap'],
+      technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'MongoDB', 'Express.js', 'Mongoose'],
       category: 'Full-Stack',
       liveUrl: 'https://reepls.com',
-      githubUrl: 'https://github.com/mokfembam/reepls',
+      githubUrl: 'https://github.com/reepls/reepls-web',
       features: [
         'Rich text editor',
         'Audio podcast platform',
@@ -125,7 +126,7 @@ const Projects: React.FC = () => {
       technologies: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Firebase'],
       category: 'Mobile',
       liveUrl: 'https://reepls.com',
-      githubUrl: 'https://github.com/mokfembam/reepls-mobile',
+      githubUrl: 'https://github.com/staruth0/reepls-mobile',
       features: [
         'Cross-platform mobile app',
         'Offline content access',
@@ -155,7 +156,7 @@ const Projects: React.FC = () => {
       image: '/api/placeholder/600/400',
       technologies: ['WordPress', 'PHP', 'MySQL', 'WooCommerce', 'JavaScript', 'CSS'],
       category: 'WordPress',
-      liveUrl: 'https://pinballcadnation.com',
+      liveUrl: 'https://pinballcardnations.com/',
       features: [
         'Product catalog and search',
         'Shopping cart system',
@@ -175,6 +176,39 @@ const Projects: React.FC = () => {
         'Built real-time inventory tracking',
         'Implemented cart state management',
         'Created automated order processing system'
+      ]
+    },
+    {
+      id: 'secureminer',
+      title: 'SecureMiner',
+      description: 'A modern, decentralized cryptocurrency mining platform built with React, TypeScript, and Web3 technologies. Enables zero-deposit mining where users maintain full control of their funds.',
+      longDescription: 'SecureMiner is a modern, decentralized cryptocurrency mining platform built with React, TypeScript, and Web3 technologies. The platform enables users to participate in zero-deposit mining operations, where funds remain securely in their own wallets while earning rewards through automated mining calculations. Features include multi-wallet support via Web3Modal, reward center with daily check-ins, lucky draw system, task center, and team referral system.',
+      image: '/api/placeholder/600/400',
+      technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Wagmi', 'Web3Modal', 'Viem', 'React Query'],
+      category: 'Frontend',
+      liveUrl: 'https://secureminer.netlify.app/',
+      githubUrl: 'https://github.com/Fabrice-Mokfembam/secureminer',
+      features: [
+        'Web3 wallet integration (MetaMask, WalletConnect)',
+        'Zero-deposit mining system',
+        'Multi-chain support (Ethereum, Polygon, BSC)',
+        'Reward center with daily check-ins',
+        'Lucky draw lottery system',
+        'Task center with completion rewards',
+        'Team referral system',
+        'Real-time balance tracking'
+      ],
+      challenges: [
+        'Wallet connection initialization',
+        'Multi-chain support configuration',
+        'State synchronization across components',
+        'Mobile wallet integration'
+      ],
+      solutions: [
+        'Implemented Web3Modal for universal wallet connection',
+        'Configured Wagmi with multiple blockchain networks',
+        'Used React Query for efficient state management',
+        'Integrated WalletConnect for mobile wallet support'
       ]
     }
   ];

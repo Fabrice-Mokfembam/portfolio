@@ -1,12 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Download, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Twitter, Mail, Download, ArrowRight, X } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const [showCvPopup, setShowCvPopup] = useState(false);
+
+  const scrollToProjects = () => {
+    const element = document.querySelector('#projects');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleDownloadCv = () => {
+    setShowCvPopup(true);
+  };
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/Fabrice-Mokfembam/', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/fabrice-mokfembam/', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/home', label: 'Twitter' },
     { icon: Mail, href: 'mailto:fabricemokfembam@gmail.com', label: 'Email' },
   ];
 
@@ -62,6 +74,7 @@ const Hero: React.FC = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.button
+                onClick={handleDownloadCv}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary flex items-center space-x-2 group"
@@ -70,6 +83,7 @@ const Hero: React.FC = () => {
                 <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
               </motion.button>
               <motion.button
+                onClick={scrollToProjects}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-secondary flex items-center space-x-2 group"
@@ -166,6 +180,57 @@ const Hero: React.FC = () => {
           />
         </motion.div>
       </motion.div>
+
+      {/* CV Not Available Popup */}
+      <AnimatePresence>
+        {showCvPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setShowCvPopup(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="glass max-w-md w-full rounded-2xl p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-white">CV Not Available</h3>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setShowCvPopup(false)}
+                  className="w-8 h-8 glass rounded-lg flex items-center justify-center hover:bg-gray-600/20 transition-colors"
+                >
+                  <X className="w-5 h-5 text-gray-300" />
+                </motion.button>
+              </div>
+              <p className="text-gray-300 mb-6">
+                My CV is currently not available for download. Please contact me directly at{' '}
+                <a 
+                  href="mailto:fabricemokfembam@gmail.com" 
+                  className="text-white hover:underline"
+                >
+                  fabricemokfembam@gmail.com
+                </a>{' '}
+                for more information.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowCvPopup(false)}
+                className="w-full btn-primary"
+              >
+                Close
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
