@@ -10,7 +10,8 @@ import {
   Linkedin, 
   Twitter,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  MessageCircle
 } from 'lucide-react';
 
 const Contact: React.FC = () => {
@@ -23,6 +24,10 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const phoneNumber = '237670514600';
+  const formattedPhone = '+237 670 514 600';
 
   const contactInfo = [
     {
@@ -34,8 +39,9 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+237 123 456 789',
-      href: 'tel:+237123456789'
+      value: formattedPhone,
+      href: `tel:+${phoneNumber}`,
+      whatsapp: `https://wa.me/${phoneNumber}`
     },
     {
       icon: MapPin,
@@ -93,13 +99,29 @@ const Contact: React.FC = () => {
       
       // Reset status after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Email sending failed:', error);
       setIsSubmitting(false);
       setSubmitStatus('error');
       
-      // Reset error status after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      // Provide specific error messages
+      if (error?.text?.includes('Gmail_API') || error?.text?.includes('Invalid grant')) {
+        setErrorMessage('Gmail service needs to be reconnected. Please check your EmailJS account settings.');
+      } else if (error?.status === 400) {
+        setErrorMessage('Invalid request. Please check your form data and try again.');
+      } else if (error?.status === 401) {
+        setErrorMessage('Authentication failed. Please check your EmailJS credentials.');
+      } else if (error?.status === 412) {
+        setErrorMessage('Email service configuration error. Please reconnect your email service in EmailJS.');
+      } else {
+        setErrorMessage('Failed to send message. Please try again later or contact me directly at fabricemokfembam@gmail.com');
+      }
+      
+      // Reset error status after 8 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }, 8000);
     }
   };
 
@@ -142,24 +164,42 @@ const Contact: React.FC = () => {
             {/* Contact Info Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="glass p-4 rounded-lg flex items-center space-x-4 group hover:bg-gray-600/10 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <info.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-400">{info.title}</div>
-                    <div className="text-white font-medium">{info.value}</div>
-                  </div>
-                </motion.a>
+                <div key={info.title}>
+                  <motion.a
+                    href={info.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                    className="glass p-4 rounded-lg flex items-center space-x-4 group hover:bg-gray-600/10 transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <info.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm text-gray-400">{info.title}</div>
+                      <div className="text-white font-medium">{info.value}</div>
+                    </div>
+                  </motion.a>
+                  {/* WhatsApp button for phone */}
+                  {info.whatsapp && (
+                    <motion.a
+                      href={info.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.02 }}
+                      className="mt-2 glass p-3 rounded-lg flex items-center justify-center space-x-2 group hover:bg-green-500/20 transition-all duration-300"
+                    >
+                      <MessageCircle className="w-5 h-5 text-green-400" />
+                      <span className="text-sm text-green-400 font-medium">Chat on WhatsApp</span>
+                    </motion.a>
+                  )}
+                </div>
               ))}
             </div>
 
@@ -247,7 +287,7 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
-                    placeholder="+237 123 456 789"
+                    placeholder="+237 670 514 600"
                   />
                 </div>
                 <div>
@@ -300,10 +340,17 @@ const Contact: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center space-x-2 text-red-400"
+                  className="flex items-start space-x-2 text-red-400"
                 >
-                  <AlertCircle className="w-5 h-5" />
-                  <span>Failed to send message. Please try again.</span>
+                  <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <div className="flex-1">
+                    <span className="block">{errorMessage || 'Failed to send message. Please try again.'}</span>
+                    {errorMessage.includes('Gmail') && (
+                      <span className="block text-sm text-gray-400 mt-1">
+                        Go to <a href="https://www.emailjs.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">EmailJS Dashboard</a> → Email Services → Reconnect your Gmail account
+                      </span>
+                    )}
+                  </div>
                 </motion.div>
               )}
 

@@ -51,7 +51,7 @@ const Header: React.FC = () => {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-gray-600 to-gray-500 flex items-center justify-center">
               <span className="text-white font-bold text-xl">MF</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2">
               <Mail className="w-4 h-4 text-gray-300" />
               <span className="text-sm text-gray-300">fabricemokfembam@gmail.com</span>
             </div>
