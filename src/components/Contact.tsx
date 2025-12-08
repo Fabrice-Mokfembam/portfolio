@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -27,8 +28,8 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'mokfembam.fabrice@gmail.com',
-      href: 'mailto:mokfembam.fabrice@gmail.com'
+      value: 'fabricemokfembam@gmail.com',
+      href: 'mailto:fabricemokfembam@gmail.com'
     },
     {
       icon: Phone,
@@ -48,7 +49,7 @@ const Contact: React.FC = () => {
     { icon: Github, href: 'https://github.com/mokfembam', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/mokfembam-fabrice', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/mokfembam', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:mokfembam.fabrice@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:fabricemokfembam@gmail.com', label: 'Email' }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,16 +62,45 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    // Simulate form submission
-    setTimeout(() => {
+    // EmailJS configuration
+    // You'll need to replace these with your actual EmailJS credentials
+    // Get them from https://www.emailjs.com/
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+    
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'fabricemokfembam@gmail.com',
+        },
+        publicKey
+      );
+      
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 2000);
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   return (

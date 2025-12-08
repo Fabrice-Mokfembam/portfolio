@@ -53,7 +53,7 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4 text-gray-300" />
-              <span className="text-sm text-gray-300">mokfembam.fabrice@gmail.com</span>
+              <span className="text-sm text-gray-300">fabricemokfembam@gmail.com</span>
             </div>
           </motion.div>
 

@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = ['All', 'Frontend', 'Full-Stack', 'Mobile'];
+  const categories = ['All', 'Frontend', 'Full-Stack', 'Mobile', 'WordPress'];
 
   const projects: Project[] = [
     {
@@ -115,6 +115,67 @@ const Projects: React.FC = () => {
         'Built AI-powered content filtering',
         'Integrated i18n framework'
       ]
+    },
+    {
+      id: 'reepls-mobile',
+      title: 'Reepls Mobile App',
+      description: 'Mobile application version of the Reepls content platform, bringing blogging, podcasting, and social networking to mobile devices.',
+      longDescription: 'Reepls Mobile App is the cross-platform mobile version of the Reepls content platform. Built with React Native, it provides a seamless mobile experience for content creators and readers to access blogs, podcasts, and social features on the go.',
+      image: '/api/placeholder/600/400',
+      technologies: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Firebase'],
+      category: 'Mobile',
+      liveUrl: 'https://reepls.com',
+      githubUrl: 'https://github.com/mokfembam/reepls-mobile',
+      features: [
+        'Cross-platform mobile app',
+        'Offline content access',
+        'Push notifications',
+        'Audio podcast playback',
+        'Social feed integration',
+        'User profile management'
+      ],
+      challenges: [
+        'Cross-platform compatibility',
+        'Offline functionality',
+        'Audio streaming on mobile',
+        'Push notification setup'
+      ],
+      solutions: [
+        'Used React Native for cross-platform development',
+        'Implemented local storage for offline access',
+        'Optimized audio streaming for mobile networks',
+        'Integrated Firebase Cloud Messaging'
+      ]
+    },
+    {
+      id: 'pinball-cadnation',
+      title: 'Pinball Cadnation',
+      description: 'An eCommerce platform specializing in pinball machines, offering a complete online shopping experience for pinball enthusiasts.',
+      longDescription: 'Pinball Cadnation is a comprehensive eCommerce website built for selling pinball machines online. The platform features product catalogs, shopping cart functionality, payment processing, and order management to provide customers with a seamless purchasing experience.',
+      image: '/api/placeholder/600/400',
+      technologies: ['WordPress', 'PHP', 'MySQL', 'WooCommerce', 'JavaScript', 'CSS'],
+      category: 'WordPress',
+      liveUrl: 'https://pinballcadnation.com',
+      features: [
+        'Product catalog and search',
+        'Shopping cart system',
+        'Secure payment processing',
+        'Order management',
+        'User accounts',
+        'Product reviews and ratings'
+      ],
+      challenges: [
+        'Payment gateway integration',
+        'Inventory management',
+        'Shopping cart persistence',
+        'Order processing workflow'
+      ],
+      solutions: [
+        'Integrated Stripe payment gateway',
+        'Built real-time inventory tracking',
+        'Implemented cart state management',
+        'Created automated order processing system'
+      ]
     }
   ];
 
@@ -127,6 +188,7 @@ const Projects: React.FC = () => {
       case 'Frontend': return Globe;
       case 'Full-Stack': return Code;
       case 'Mobile': return Smartphone;
+      case 'WordPress': return Globe;
       default: return Database;
     }
   };

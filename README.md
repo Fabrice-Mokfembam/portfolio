@@ -1,3 +1,67 @@
+# Portfolio Website - Mokfembam Fabrice
+
+A modern, professional portfolio website built with React, TypeScript, and Vite.
+
+## Features
+
+- 🎨 Modern dark theme with glassmorphism effects
+- 📱 Fully responsive design
+- ⚡ Smooth animations with Framer Motion
+- 📧 Contact form with EmailJS integration
+- 🚀 Fast and optimized performance
+
+## EmailJS Setup
+
+To enable the contact form to send emails, you need to set up EmailJS:
+
+1. **Sign up for EmailJS**: Go to [https://www.emailjs.com/](https://www.emailjs.com/) and create a free account
+
+2. **Create an Email Service**:
+   - Go to Email Services and add a new service (Gmail, Outlook, etc.)
+   - Follow the setup instructions for your email provider
+   - Copy your Service ID
+
+3. **Create an Email Template**:
+   - Go to Email Templates and create a new template
+   - Use these template variables:
+     - `{{from_name}}` - Sender's name
+     - `{{from_email}}` - Sender's email
+     - `{{phone}}` - Sender's phone
+     - `{{subject}}` - Email subject
+     - `{{message}}` - Email message
+   - Set the recipient email to: `fabricemokfembam@gmail.com`
+   - Copy your Template ID
+
+4. **Get your Public Key**:
+   - Go to Account > API Keys
+   - Copy your Public Key
+
+5. **Create Environment Variables**:
+   - Create a `.env` file in the root directory
+   - Add the following variables:
+     ```
+     VITE_EMAILJS_SERVICE_ID=your_service_id_here
+     VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
+     VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+     ```
+
+6. **Restart your development server** after adding the environment variables
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

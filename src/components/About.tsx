@@ -77,16 +77,16 @@ const About: React.FC = () => {
             {/* Skills Preview */}
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="glass p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold gradient-text">3+</div>
+                <div className="text-2xl font-bold gradient-text">2+</div>
                 <div className="text-sm text-gray-400">Years Coding</div>
               </div>
               <div className="glass p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold gradient-text">15+</div>
+                <div className="text-2xl font-bold gradient-text">5+</div>
                 <div className="text-sm text-gray-400">Projects Built</div>
               </div>
               <div className="glass p-4 rounded-lg text-center">
-                <div className="text-2xl font-bold gradient-text">5+</div>
-                <div className="text-sm text-gray-400">Technologies</div>
+                <div className="text-2xl font-bold gradient-text">4+</div>
+                <div className="text-sm text-gray-400">Happy Clients</div>
               </div>
               <div className="glass p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold gradient-text">∞</div>

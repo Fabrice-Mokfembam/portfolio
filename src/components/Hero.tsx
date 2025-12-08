@@ -7,13 +7,13 @@ const Hero: React.FC = () => {
     { icon: Github, href: '#', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:mokfembam.fabrice@gmail.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:fabricemokfembam@gmail.com', label: 'Email' },
   ];
 
   const stats = [
-    { number: '3+', label: 'Years Experience' },
-    { number: '15+', label: 'Projects Completed' },
-    { number: '5+', label: 'Happy Clients' },
+    { number: '2+', label: 'Years Experience' },
+    { number: '5+', label: 'Projects Completed' },
+    { number: '4+', label: 'Happy Clients' },
     { number: '100%', label: 'Satisfaction Rate' },
   ];
 

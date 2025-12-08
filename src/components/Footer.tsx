@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
     { icon: Github, href: 'https://github.com/mokfembam', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/mokfembam-fabrice', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/mokfembam', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:mokfembam.fabrice@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:fabricemokfembam@gmail.com', label: 'Email' }
   ];
 
   const quickLinks = [
@@ -112,10 +112,10 @@ const Footer: React.FC = () => {
               <div className="text-gray-400">
                 <div className="text-sm">Email</div>
                 <a 
-                  href="mailto:mokfembam.fabrice@gmail.com"
+                  href="mailto:fabricemokfembam@gmail.com"
                   className="text-white hover:text-purple-400 transition-colors"
                 >
-                  mokfembam.fabrice@gmail.com
+                  fabricemokfembam@gmail.com
                 </a>
               </div>
               <div className="text-gray-400">

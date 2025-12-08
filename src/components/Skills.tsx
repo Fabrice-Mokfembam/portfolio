@@ -13,15 +13,15 @@ const Skills: React.FC = () => {
   const skills = [
     { name: 'React.js', percentage: 90, icon: Code, color: 'from-blue-500 to-cyan-500' },
     { name: 'MongoDB', percentage: 85, icon: Database, color: 'from-green-500 to-emerald-500' },
-    { name: 'Express.js', percentage: 88, icon: Server, color: 'from-gray-500 to-slate-500' },
-    { name: 'Next.js', percentage: 85, icon: Globe, color: 'from-black to-gray-800' },
-    { name: 'Supabase', percentage: 80, icon: Database, color: 'from-green-400 to-green-600' },
-    { name: 'Prisma', percentage: 75, icon: Database, color: 'from-purple-500 to-pink-500' },
-    { name: 'PHP', percentage: 70, icon: Code, color: 'from-purple-600 to-indigo-600' },
-    { name: 'MySQL', percentage: 75, icon: Database, color: 'from-orange-500 to-yellow-500' },
-    { name: 'WordPress', percentage: 80, icon: Globe, color: 'from-blue-600 to-blue-800' },
+    { name: 'Express.js', percentage: 85, icon: Server, color: 'from-gray-500 to-slate-500' },
+    { name: 'Node.js', percentage: 85, icon: Server, color: 'from-green-600 to-green-800' },
+    { name: 'Next.js', percentage: 50, icon: Globe, color: 'from-black to-gray-800' },
+    { name: 'Supabase', percentage: 40, icon: Database, color: 'from-green-400 to-green-600' },
+    { name: 'Prisma', percentage: 50, icon: Database, color: 'from-purple-500 to-pink-500' },
+    { name: 'PHP', percentage: 20, icon: Code, color: 'from-purple-600 to-indigo-600' },
+    { name: 'WordPress', percentage: 70, icon: Globe, color: 'from-blue-600 to-blue-800' },
     { name: 'React Native', percentage: 70, icon: Smartphone, color: 'from-blue-400 to-blue-600' },
-    { name: 'Ionic', percentage: 65, icon: Smartphone, color: 'from-blue-500 to-purple-500' },
+    { name: 'Ionic', percentage: 50, icon: Smartphone, color: 'from-blue-500 to-purple-500' },
     { name: 'Flutter', percentage: 60, icon: Smartphone, color: 'from-blue-400 to-cyan-400' },
   ];
 
