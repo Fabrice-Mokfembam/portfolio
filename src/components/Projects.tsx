@@ -183,12 +183,12 @@ const Projects: React.FC = () => {
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Project Image */}
-                <div className="relative h-48 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                    <Code className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center">
+                 <div className="relative h-48 bg-gradient-to-br from-gray-600/20 to-gray-500/20 flex items-center justify-center">
+                   <div className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg flex items-center justify-center">
+                     <Code className="w-8 h-8 text-white" />
+                   </div>
+                   <div className="absolute top-4 right-4">
+                     <div className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full flex items-center justify-center">
                       {React.createElement(getCategoryIcon(project.category), { className: "w-4 h-4 text-white" })}
                     </div>
                   </div>

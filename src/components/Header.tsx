@@ -41,19 +41,19 @@ const Header: React.FC = () => {
         isScrolled ? 'glass backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-gray-600 to-gray-500 flex items-center justify-center">
               <span className="text-white font-bold text-xl">MF</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4 text-gray-400" />
-              <span className="text-sm text-gray-400">mokfembam.fabrice@gmail.com</span>
+              <Mail className="w-4 h-4 text-gray-300" />
+              <span className="text-sm text-gray-300">mokfembam.fabrice@gmail.com</span>
             </div>
           </motion.div>
 

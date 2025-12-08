@@ -18,13 +18,13 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 via-transparent to-gray-700/20" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gray-600/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             >
               <h1 className="text-5xl lg:text-7xl font-bold">
                 I'm{' '}
-                <span className="gradient-text">Mokfembam</span>
+                <span className="text-white">Mokfembam</span>
                 <br />
                 Fabrice
               </h1>
@@ -116,11 +116,11 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               className="relative w-80 h-80 mx-auto lg:mx-0"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full blur-xl opacity-30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full blur-xl opacity-30" />
               <div className="relative w-full h-full glass rounded-full p-2">
                 <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
                   {/* Placeholder for profile image */}
-                  <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-600/20 to-gray-500/20 rounded-full flex items-center justify-center">
                     <span className="text-6xl font-bold gradient-text">MF</span>
                   </div>
                 </div>

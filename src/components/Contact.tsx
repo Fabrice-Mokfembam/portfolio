@@ -120,9 +120,9 @@ const Contact: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
-                  className="glass p-4 rounded-lg flex items-center space-x-4 group hover:bg-purple-500/10 transition-all duration-300"
+                  className="glass p-4 rounded-lg flex items-center space-x-4 group hover:bg-gray-600/10 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>

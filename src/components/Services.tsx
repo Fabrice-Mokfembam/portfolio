@@ -142,10 +142,10 @@ const Services: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="glass rounded-lg p-6 group hover:bg-purple-500/10 transition-all duration-300"
+              className="glass rounded-lg p-6 group hover:bg-gray-600/10 transition-all duration-300"
             >
               {/* Service Icon */}
-              <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+              <div className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <service.icon className="w-8 h-8 text-white" />
               </div>
 
@@ -203,14 +203,14 @@ const Services: React.FC = () => {
               >
                 {/* Connection Line */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 z-0" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-gray-600 to-gray-500 z-0" />
                 )}
 
                 <div className="glass p-6 rounded-lg text-center relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-sm font-bold text-purple-400 mb-2">{step.step}</div>
+                  <div className="text-sm font-bold text-gray-400 mb-2">{step.step}</div>
                   <h4 className="text-lg font-semibold text-white mb-2">{step.title}</h4>
                   <p className="text-gray-400 text-sm">{step.description}</p>
                 </div>
