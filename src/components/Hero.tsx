@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Download, ArrowRight, X } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Twitter, Mail, Download, ArrowRight } from 'lucide-react';
+import firstImage from '../assets/firstimage.jpeg';
 
 const Hero: React.FC = () => {
-  const [showCvPopup, setShowCvPopup] = useState(false);
-
   const scrollToProjects = () => {
     const element = document.querySelector('#projects');
     if (element) {
@@ -13,7 +12,12 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadCv = () => {
-    setShowCvPopup(true);
+    const link = document.createElement('a');
+    link.href = '/Full Stack Developer CV (1).pdf';
+    link.download = 'Mokfembam_Fabrice_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Fabrice-Mokfembam/', label: 'GitHub' },
@@ -131,12 +135,14 @@ const Hero: React.FC = () => {
               className="relative w-80 h-80 mx-auto lg:mx-0"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full blur-xl opacity-30" />
-              <div className="relative w-full h-full glass rounded-full p-2">
-                <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
-                  {/* Placeholder for profile image */}
-                  <div className="w-full h-full bg-gradient-to-br from-gray-600/20 to-gray-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-6xl font-bold gradient-text">MF</span>
-                  </div>
+              <div className="relative w-full h-full glass rounded-full p-2 overflow-hidden">
+                <div className="relative w-full h-full rounded-full overflow-hidden">
+                  <img 
+                    src={firstImage} 
+                    alt="Mokfembam Fabrice" 
+                    className="w-full h-full object-cover brightness-75 contrast-110 grayscale-[0.2]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900/40 to-gray-800/30 rounded-full" />
                 </div>
               </div>
             </motion.div>
@@ -181,56 +187,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* CV Not Available Popup */}
-      <AnimatePresence>
-        {showCvPopup && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setShowCvPopup(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="glass max-w-md w-full rounded-2xl p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-white">CV Not Available</h3>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => setShowCvPopup(false)}
-                  className="w-8 h-8 glass rounded-lg flex items-center justify-center hover:bg-gray-600/20 transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-300" />
-                </motion.button>
-              </div>
-              <p className="text-gray-300 mb-6">
-                My CV is currently not available for download. Please contact me directly at{' '}
-                <a 
-                  href="mailto:fabricemokfembam@gmail.com" 
-                  className="text-white hover:underline"
-                >
-                  fabricemokfembam@gmail.com
-                </a>{' '}
-                for more information.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowCvPopup(false)}
-                className="w-full btn-primary"
-              >
-                Close
-              </motion.button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

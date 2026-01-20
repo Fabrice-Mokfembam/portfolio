@@ -11,7 +11,8 @@ import {
   Twitter,
   CheckCircle,
   AlertCircle,
-  MessageCircle
+  MessageCircle,
+  Download
 } from 'lucide-react';
 
 const Contact: React.FC = () => {
@@ -63,6 +64,15 @@ const Contact: React.FC = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleDownloadCv = () => {
+    const link = document.createElement('a');
+    link.href = '/Full Stack Developer CV (1).pdf';
+    link.download = 'Mokfembam_Fabrice_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -227,6 +237,25 @@ const Contact: React.FC = () => {
                 ))}
               </div>
             </div>
+
+            {/* Download CV Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-6"
+            >
+              <motion.button
+                onClick={handleDownloadCv}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full btn-secondary flex items-center justify-center space-x-2 group"
+              >
+                <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                <span>Download My Resume</span>
+              </motion.button>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}

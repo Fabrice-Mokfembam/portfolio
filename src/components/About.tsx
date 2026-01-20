@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Lightbulb, Heart, Target } from 'lucide-react';
+import secondImage from '../assets/secondimage.jpeg';
 
 const About: React.FC = () => {
   const passions = [
@@ -27,8 +28,19 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section bg-gradient-to-b from-transparent to-gray-900/20">
-      <div className="container mx-auto px-6">
+    <section id="about" className="section bg-gradient-to-b from-transparent to-gray-900/20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${secondImage})`,
+            filter: 'brightness(0.3) contrast(0.8) grayscale(0.5)',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/70 to-gray-900/80" />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -8,6 +8,7 @@ import {
   Palette, 
   Server,
 } from 'lucide-react';
+import thirdImage from '../assets/thirdimage.png';
 
 const Skills: React.FC = () => {
   const skills = [
@@ -53,8 +54,19 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="section">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="section relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${thirdImage})`,
+            filter: 'brightness(0.3) contrast(0.8) grayscale(0.5)',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/70 to-gray-900/80" />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
